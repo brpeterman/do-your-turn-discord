@@ -1,0 +1,15 @@
+{
+  "name": "do-your-turn-discord",
+  "version": "1.0.0",
+  "description": "Reminder bot for GMR turns",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brandon Peterman",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "lossless-json": "^1.0.3"
+  }
+}

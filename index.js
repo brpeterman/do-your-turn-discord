@@ -8,7 +8,10 @@ const discordClient = new DiscordClient(config);
 let pollInterval = null;
 
 process.on('unhandledRejection', error => {
-    throw error;
+    console.log(error);
+    if (error.stack) {
+        console.log(error.stack);
+    }
 });
 
 process.on('SIGINT', () => {

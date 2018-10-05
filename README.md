@@ -1,6 +1,6 @@
 # do-your-turn-discord
 
-This is a Discord bot that pings users when their [GMR](https://www.multiplayerrobot.com) turn comes up.
+This is a node.js Discord bot that pings users when their [GMR](https://www.multiplayerrobot.com) turn comes up.
 
 It is dead simple and does not scale to multiple games, guilds, or channels.
 
@@ -57,3 +57,9 @@ Drop a config file into `configuration/config.json`. It looks like this:
 
 1. In the Discord settings, turn on developer mode.
 1. Right-click on whatever thing you want the ID of and click "Copy ID".
+
+## Execution
+
+`npm start`
+
+Send an interrupt (Ctrl-C) to shut it down.

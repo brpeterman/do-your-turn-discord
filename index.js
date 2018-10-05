@@ -3,15 +3,13 @@
 const DiscordClient = require('./src/discord-client');
 const GmrClient = require('./src/gmr-client');
 const config = require('./configuration/config.json');
+const Logger = require('./src/logger');
 
 const discordClient = new DiscordClient(config);
 let pollInterval = null;
 
 process.on('unhandledRejection', error => {
-    console.log(error);
-    if (error.stack) {
-        console.log(error.stack);
-    }
+    Logger.error(error.message, {stackTrace: error.stack});
 });
 
 process.on('SIGINT', () => {
@@ -28,6 +26,8 @@ discordClient.connect().then(() => {
             if (player !== lastPlayer) {
                 discordClient.reportTurn(player.discordId, config.gmr.gameId);
             }
+        }).catch(error => {
+            Logger.warn(`Failed to retrieve game from GMR. Retrying at next opportunity. Error message: ${error.message}`);
         });
     }, 60000);
 });

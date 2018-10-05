@@ -1,6 +1,7 @@
 "use strict";
 
 const Discord = require('discord.js');
+const Logger = require('./logger');
 
 class DiscordClient {
     constructor(config) {
@@ -12,6 +13,9 @@ class DiscordClient {
 
     _initializeClient() {
         this._client = new Discord.Client();
+        this._client.on('error', (error) => {
+            Logger.error(`Error from Discord socket: ${error.message}`);
+        });
     }
 
     _getUser(userId) {

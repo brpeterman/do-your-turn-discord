@@ -24,9 +24,11 @@ class GmrClient {
                 if (!game) {
                     reject(new Error("Failed to find game"));
                 }
-                const gmrPlayer = game.CurrentTurn.UserId.value;
-                this._lastPlayer = this._playersMap[gmrPlayer];
-                resolve(this._playersMap[gmrPlayer]);
+		else {
+                    const gmrPlayer = game.CurrentTurn.UserId.value;
+                    this._lastPlayer = this._playersMap[gmrPlayer];
+                    resolve(this._playersMap[gmrPlayer]);
+		}
             });
         });
     }

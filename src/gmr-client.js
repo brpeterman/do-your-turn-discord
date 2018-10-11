@@ -45,7 +45,9 @@ class GmrClient {
                 response.on('end', () => {
                     resolve(LosslessJSON.parse(rawData));
                 });
-            });
+            }).on('error', err => {
+		reject(err);
+	    });
         });
     }
 }
